@@ -26,6 +26,6 @@ export class Home extends React.Component {
                 <h1 style={{ color: "red" }} >This is a quick brake down of the synptoms of Covid-19</h1>
                 <Covid19 covid19={this.state.covid19}></Covid19>
             </div>
-        );//pass data from page1 component to covid component
+        );//pass data from home component to covid19 component
     }
 }
