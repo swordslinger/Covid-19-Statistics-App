@@ -7,11 +7,12 @@ export class UsersItem extends React.Component {
         return (
             <div>
                 <Card border="success"  style={{flex:1, backgroundColor:'#aab0a8'}}>
-                    <Card.Header >Accounts In database</Card.Header>
+                    <Card.Header><h2 style={{ color: "red" }}>Accounts In database</h2></Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
+                        <h3 style={{ color: "yellow" }}>Email</h3>
                         {this.props.users2.gmail}<br></br><br></br>{/* reads in data fron database and passes it to users to be mapped */}
-                      
+                        <h3 style={{ color: "white" }}>Password</h3>
                         {this.props.users2.password}<br></br><br></br>
                         </blockquote>
                         

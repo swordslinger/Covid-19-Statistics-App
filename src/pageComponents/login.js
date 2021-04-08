@@ -22,7 +22,7 @@ export class Login extends React.Component {
     render() {
         return (
             <div>
-                <h1 style={{ color: "red" }} >This is a quick brake down of the synptoms of Covid-19</h1>
+                <h1 style={{ color: "black" }} >This is a Display of current accounts in Mongodb</h1>
                 <Users users={this.state.users}></Users>
             </div>
         );//pass data from home component to users component
