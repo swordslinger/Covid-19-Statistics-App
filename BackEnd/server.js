@@ -13,10 +13,8 @@ app.use(function (req, res, next) {
         "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-
 // parse application/json
 app.use(bodyParser.json())
 
@@ -25,35 +23,22 @@ const myConnectionString = 'mongodb+srv://admin:admin@cluster0.u14z7.mongodb.net
 mongoose.connect(myConnectionString, { useNewUrlParser: true });
 
 const Schema = mongoose.Schema;
-
 var usersSchema = new Schema({
     gmail: String,
     password: String
 });
-
 var UsersModel = mongoose.model("users", usersSchema);
 
 app.get('/users', (req, res) => {
-
     // const users = [
-    //     {
-    //         "Gmail": "Emmet@gmail.com",
-    //         "Password": "tuny"
-    //     },
-    //     {
-    //         "Gmail": "ryan@gmail.com",
-    //         "Password": "123"
-    //     }
-
+    //     { "Gmail": "Emmet@gmail.com", "Password": "tuny"},
+    //     {"Gmail": "ryan@gmail.com", "Password": "123"}
     // ];//all hardcoded to object and will be passed to the server
+    // res.status(200).json({message: "Everything is ok", //passing a string users: users //object passwed down });
 
     UsersModel.find((err, data) => { //find all documents in database
         res.json(data);
     })
-    // res.status(200).json({
-    //     message: "Everything is ok", //passing a string
-    //     users: users //object passwed down
-    // });
 })
 
 app.get('/users/:id', (req, res) => {
@@ -65,7 +50,15 @@ app.get('/users/:id', (req, res) => {
     })
 })
 
+app.put('/users/:id', (req, res) => {
+    console.log("Update User: " + req.params.id);//update a specific uper with that specific id
+    console.log(req.body);
 
+    UsersModel.findByIdAndUpdate(req.params.id, req.body, { new: true },//interact with database// then update entire document in 2 fields
+        (err, data) => {
+            res.send(data);
+        })//send back the data
+})
 
 app.post('/users', (req, res) => {//method loads data from the server using a HTTP POST request.
     console.log('Account Recieved!');

@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';//changes url of application and passes id
 //export class so it can be used in different locations
 export class UsersItem extends React.Component {   
 
@@ -17,6 +18,7 @@ export class UsersItem extends React.Component {
                         </blockquote>
                         
                     </Card.Body>
+                    <Link to={"/edit/" + this.props.users2._id} className="btn btn-primary">Edit</Link>{/* change url to specific id */}
                 </Card>
             </div>
         );

@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import './App.css';
-
-import { Home } from './pageComponents/home';
-import { Login } from './pageComponents/login';
-import { Register } from './pageComponents/register';
-import { MapOfIreland } from './pageComponents/mapOfIreland';
-import { HealthInfo } from './pageComponents/healthInfo';
-
-
-import { Bot } from './pageComponents/bot';
-import { Images } from './pageComponents/images';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';//controlls for the nav bar
+import React, { Component } from 'react';
+import { Nav, Navbar } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; //controlls for the nav bar
+import './App.css';
+import { Bot } from './pageComponents/bot';
+import { HealthInfo } from './pageComponents/healthInfo';
+import { Home } from './pageComponents/home';
+import { Images } from './pageComponents/images';
+import { Login } from './pageComponents/login';
+import { MapOfIreland } from './pageComponents/mapOfIreland';
+import { Register } from './pageComponents/register';
+import { Edit } from './pageComponents/edit';
+
+
+
 
 class App extends Component {//importing a class from react
   render() {
@@ -40,10 +41,8 @@ class App extends Component {//importing a class from react
             <Route path='/login' component={Login} exact />
             <Route path='/register' component={Register} exact />
             <Route path='/mapOfIreland' component={MapOfIreland} exact />
-            {/* 
-             
-             
-             */}
+            <Route path='/edit/:id' component={Edit}/>  {/* user sent here with unique id of each user*/}
+           
 
           </Switch>
 
