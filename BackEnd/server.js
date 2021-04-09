@@ -50,6 +50,14 @@ app.get('/users/:id', (req, res) => {
     })
 })
 
+app.delete('/users/:id', (req, res) => {//gets id from url
+    console.log("Delete Account: " + req.params.id);
+    //interact with Users model find id and then delete
+    UsersModel.findByIdAndDelete(req.params.id, (err, data) => {//matches id get passed up
+        res.send(data);
+    })
+})
+
 app.put('/users/:id', (req, res) => {
     console.log("Update User: " + req.params.id);//update a specific uper with that specific id
     console.log(req.body);
