@@ -4,6 +4,7 @@ const port = 4000 //so it wont collide with other local server
 const cors = require('cors');//including cors
 const bodyParser = require("body-parser");//allows to intercept body of a http message passed as a post request
 const mongoose = require('mongoose');
+const path = require('path');
 
 app.use(cors());
 app.use(function (req, res, next) {
@@ -13,6 +14,10 @@ app.use(function (req, res, next) {
         "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+//send files so only requires 1 service
+app.use(express.static(path.join(__dirname, '../build')));//points to build folder
+app.use('/static', express.static(path.join(__dirname, 'build//static')));//points to static folder
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
@@ -80,6 +85,9 @@ app.post('/users', (req, res) => {//method loads data from the server using a HT
     res.send('User Added');// so its not duplicated
 })
 
+app.get('*', (req, res) => {//will give all roots and send file back from index.html
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
+})
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
