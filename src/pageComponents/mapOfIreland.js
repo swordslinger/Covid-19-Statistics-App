@@ -6,7 +6,7 @@ export class MapOfIreland extends React.Component {
         return (
             <div>
                 <h1 style={{ color: "red" }} >This is a Test for Map of Ireland link</h1>
-                
+
             </div>
         );
     }

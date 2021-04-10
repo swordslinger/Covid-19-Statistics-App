@@ -41,7 +41,7 @@ export class Login extends React.Component {
         return (
             <div>
                 <h1 style={{ color: "black" }} >This is a Display of current accounts in Mongodb</h1>
-                 <Users users={this.state.users} ReloadData={this.ReloadData}></Users>{/*Passing down reloadData method */}
+                <Users users={this.state.users} ReloadData={this.ReloadData}></Users>{/*Passing down reloadData method */}
             </div>
         );//pass data from home component to users component
     }

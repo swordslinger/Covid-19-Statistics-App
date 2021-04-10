@@ -53,38 +53,32 @@ export class Register extends React.Component {
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add gmail: </label>
-                        <input type='text' className='form-control'
-                            value={this.state.Gmail}
+                        <input type='email' className='form-control' title="Must contain @ and .com" minlength="4" maxlength="64" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            value={this.state.Gmail}//requires user to add @ and . com to input otherwise a warning popup will appear
                             onChange={this.onChangeGmail}>
                         </input>
                     </div>
 
                     <div className="form-group">
                         <label>Add password: </label>
-                        <input type='password' className='form-control' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                            value={this.state.Password}
+                        <input type='password' className='form-control' minlength="4" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                            value={this.state.Password}//requires user to add atleast 4 character and 1 uppercase 1 lowercase and 1 number to there password
                             onChange={this.onChangePassword}>
                         </input>
+                        {/* <label for="showPassword" class="field__toggle"></label>
+                        Show password<input type="checkbox" id="show-password" class="field__toggle-input"></input> tried to show password or hide it*/ }
                     </div>
-
+                    
                     <div className="form-group">
                         <input type='submit'
                             value='Add User'
                             className='btn btn-primary'></input>
                     </div>
-                   
                 </form>
-                <div id="message">
-                        <h3>Password must contain the following:</h3>
-                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                        <p id="number" class="invalid">A <b>number</b></p>
-                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                    </div>
-                    
+                
             </div>//when button is pressed will execute on submit method
-            
+
         );
-        
+
     }
 }

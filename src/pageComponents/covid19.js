@@ -8,4 +8,4 @@ export class Covid19 extends React.Component {
             return <Covid19Item covid={covid}></Covid19Item>
         })
     }
-} 
+}

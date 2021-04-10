@@ -64,22 +64,23 @@ export class Edit extends React.Component {
         //last div = //button
         return (
             <div className='App'>
-
+                <h2 style={{ color: "red" }} >Please edit details below</h2>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add gmail: </label>
-                        <input type='text' className='form-control'
-                            value={this.state.Gmail}
+                        <input type='email' className='form-control' title="Must contain @ and .com" minlength="4" maxlength="64" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            value={this.state.Gmail}//requires user to add @ and . com to input otherwise a warning popup will appear
                             onChange={this.onChangeGmail}>
                         </input>
                     </div>
 
                     <div className="form-group">
                         <label>Add password: </label>
-                        <input type='text' className='form-control'
-                            value={this.state.Password}
+                        <input type='password' className='form-control' minlength="4" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                            value={this.state.Password}//requires user to add atleast 4 character and 1 uppercase 1 lowercase and 1 number to there password
                             onChange={this.onChangePassword}>
                         </input>
+
                     </div>
 
                     <div className="form-group">
