@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './registerStyle.css';
 
 export class Register extends React.Component {
     constructor() {
@@ -60,7 +61,7 @@ export class Register extends React.Component {
 
                     <div className="form-group">
                         <label>Add password: </label>
-                        <input  type='text' className='form-control'
+                        <input type='password' className='form-control' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                             value={this.state.Password}
                             onChange={this.onChangePassword}>
                         </input>
@@ -71,8 +72,19 @@ export class Register extends React.Component {
                             value='Add User'
                             className='btn btn-primary'></input>
                     </div>
+                   
                 </form>
+                <div id="message">
+                        <h3>Password must contain the following:</h3>
+                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                        <p id="number" class="invalid">A <b>number</b></p>
+                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                    </div>
+                    
             </div>//when button is pressed will execute on submit method
+            
         );
+        
     }
 }

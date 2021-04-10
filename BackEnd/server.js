@@ -86,7 +86,7 @@ app.post('/users', (req, res) => {//method loads data from the server using a HT
 })
 
 app.get('*', (req, res) => {//will give all roots and send file back from index.html
-    res.sendFile(path.join(__dirname + '/../build/index.html'));
+    res.sendFile(path.join(__dirname + '/../build/index.html'));//sending a file and joining two paths
 })
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
