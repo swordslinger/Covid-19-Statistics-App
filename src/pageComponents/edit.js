@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import './registerStyle.css';
 
-export class Register extends React.Component {
+export class Edit extends React.Component {
     constructor() {
         super();
 
@@ -15,12 +14,28 @@ export class Register extends React.Component {
             Password: ''
         }
     }
+
+    componentDidMount() {
+        console.log(this.props.match.params.id);//logs id to console
+
+        axios.get('http://localhost:4000/users/' + this.props.match.params.id)//asynchronious call to server
+            .then(response => {
+                this.setState({
+                    _id: response.data._id,
+                    Gmail: response.data.gmail,//lower case on the server
+                    Password: response.data.password//locally uppercase
+                })//this will invoke get request in server.js
+            })
+            .catch((error) => {// if there is an error put out to console
+                console.log(error);
+            });
+    }
+
     onChangeGmail(e) {
         this.setState({
             Gmail: e.target.value
         });
     }
-
     onChangePassword(e) {
         this.setState({
             Password: e.target.value
@@ -33,15 +48,15 @@ export class Register extends React.Component {
 
         const newAccount = {
             gmail: this.state.Gmail,
-            password: this.state.Password
+            password: this.state.Password,
+            _id: this.state._id
         }//passing objects up as lowercase because server.js is looking for them in that case
-        axios.post('http://localhost:4000/Users', newAccount)//talks in http to send data to the server//returns promise asyncronisly
-            .then((res) => {
-                console.log(res);
+
+        axios.put('http://localhost:4000/users/' + this.state._id, newAccount)//calls url and asks what data should be passed up
+            .then(res => {
+                console.log(res.data)
             })
-            .catch((err) => {
-                console.log(err);
-            });
+            .catch();
     }
 
     render() {
@@ -49,7 +64,7 @@ export class Register extends React.Component {
         //last div = //button
         return (
             <div className='App'>
-
+                <h2 style={{ color: "red" }} >Please edit details below</h2>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add gmail: </label>
@@ -65,20 +80,16 @@ export class Register extends React.Component {
                             value={this.state.Password}//requires user to add atleast 4 character and 1 uppercase 1 lowercase and 1 number to there password
                             onChange={this.onChangePassword}>
                         </input>
-                        {/* <label for="showPassword" class="field__toggle"></label>
-                        Show password<input type="checkbox" id="show-password" class="field__toggle-input"></input> tried to show password or hide it*/ }
+
                     </div>
-                    
+
                     <div className="form-group">
                         <input type='submit'
-                            value='Add User'
+                            value='Edit User'
                             className='btn btn-primary'></input>
                     </div>
                 </form>
-                
             </div>//when button is pressed will execute on submit method
-
         );
-
     }
 }
