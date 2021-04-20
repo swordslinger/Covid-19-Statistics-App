@@ -48,6 +48,7 @@ app.get('/users', (req, res) => {
 
 app.get('/users/:id', (req, res) => {
     console.log(req.params.id);//logs to console
+    console.log("User account id found");
 
     UsersModel.findById(req.params.id, (err, data) => {//looks for unique id of each account
         //if data found send it back

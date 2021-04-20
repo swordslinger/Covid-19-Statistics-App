@@ -13,10 +13,12 @@ export class Home extends React.Component {
             .then((response) => {
                 this.setState({ covid19: response.data.covid19 })
                 console.log(response.data.covid19)
+                console.log("If this message is displaying, then the json covid19 object is read in correctly ");
             }
             )
             .catch((error) => {
                 console.log(error)
+                console.log("If this message is displaying, then the json covid19 object is not read in correctly ");
             });
     }
 
