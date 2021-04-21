@@ -85,6 +85,41 @@ app.post('/users', (req, res) => {//method loads data from the server using a HT
     res.send('User Added');// so its not duplicated
 })
 
+app.post('/login',(req, res)=> {
+    console.log("login recived")
+    console.log(req.body)
+
+    this.usersSchema = req.body
+    UsersModel.findOne({ gmail: req.body.gmail, password:req.body.password}, function(err,result)
+    {
+        if(err)
+        {
+            res.send(err)
+        }
+        else {
+           console.log(result)
+        }
+        
+    })
+    
+    
+
+  // const {email} = req.body.gmail
+  // const {passowrd} = req.body.passowrd
+
+  // console.log(email + "" + passowrd)
+   
+    
+    
+    
+    
+ 
+    
+    
+        
+    
+})
+
 app.get('*', (req, res) => {//will give all roots and send file back from index.html
     res.sendFile(path.join(__dirname + '/../build/index.html'));//sending a file and joining two paths
 })
