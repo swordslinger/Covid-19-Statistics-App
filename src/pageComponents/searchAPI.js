@@ -5,9 +5,15 @@ export class SearchAPI extends React.Component {
     constructor (){
         super()
         this.searchAPI.bind(this)
+        this.enterFID.bind(this)
         this.state = {
             fid:"",
-            results:{}
+            results:{
+                CovidCasesConfirmed:0,
+                FID:0,
+                ConfirmedCovidCases:0,
+                confirmedCovidDeaths:0
+            }
         }
     }
 
@@ -15,27 +21,28 @@ export class SearchAPI extends React.Component {
         e.preventDefault();
         this.setState({
             fid: e.target.value
-        })
-        
+        })      
+    }
+
+  
+    searchAPI = (e) => {
+        console.log(this.state.fid)
+        fetch("https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/CovidStatisticsProfileHPSCIrelandOpenData/FeatureServer/0/query?where=FID%20%3E%3D%20"+this.state.fid+"%20AND%20FID%20%3C%3D%20"+this.state.fid+"&outFields=CovidCasesConfirmed,FID,ConfirmedCovidCases,ConfirmedCovidDeaths&outSR=4326&f=json")
+        .then((response)=> response.json())
+        .then((data)=> 
+        e = data.features)
+        console.log(e)
         
     }
 
-    searchAPI = (e) => {
-        e.preventDefault();
-        axios.get("https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/CovidStatisticsProfileHPSCIrelandOpenData/FeatureServer/0/query?where=FID%20%3E%3D%20405%20AND%20FID%20%3C%3D%20405&outFields=CovidCasesConfirmed,FID,ConfirmedCovidCases,ConfirmedCovidDeaths&outSR=4326&f=json")
-        .then(res =>{
-            this.state.results = res
-        }.catch(error)
-        {
-
-        })
-
+    showData = () => {
+        alert(this.state.results)
     }
 
     
 
     render (){
-        console.log(this.state.fid)
+
         return(
             <div className='App'>
                 <form onSubmit={this.searchAPI}>
@@ -48,6 +55,8 @@ export class SearchAPI extends React.Component {
                     </input>
                 </div>
                 </form>
+                <button onClick={this.searchAPI}></button>
+                <button onClick={this.showData}></button>
         </div>
 
         
