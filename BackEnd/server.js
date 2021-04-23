@@ -90,5 +90,5 @@ app.get('*', (req, res) => {//will give all roots and send file back from index.
     res.sendFile(path.join(__dirname + '/../build/index.html'));//sending a file and joining two paths
 })
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`app is listining at http://localhost:${port}`)
 })
