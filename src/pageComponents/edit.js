@@ -25,6 +25,7 @@ export class Edit extends React.Component {
                     Gmail: response.data.gmail,//lower case on the server
                     Password: response.data.password//locally uppercase
                 })//this will invoke get request in server.js
+                console.log("Edit button was selected you are now at the edit page ");
             })
             .catch((error) => {// if there is an error put out to console
                 console.log(error);

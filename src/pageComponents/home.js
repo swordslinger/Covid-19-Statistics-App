@@ -14,6 +14,7 @@ export class Home extends React.Component {
                 this.setState({ covid19: response.data.covid19 })
                 console.log(response.data.covid19)
                 console.log("If this message is displaying, then the json covid19 object is read in correctly ");
+                console.log("Home button was selected you are now at the home page ");
             }
             )
             .catch((error) => {

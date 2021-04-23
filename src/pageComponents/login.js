@@ -18,6 +18,7 @@ export class Login extends React.Component {
             .then((response) => {
                 this.setState({ users: response.data })
                 console.log(response.data.users)
+                console.log("Login button was selected you are now at the login page ");
             }
             )
             .catch((error) => {

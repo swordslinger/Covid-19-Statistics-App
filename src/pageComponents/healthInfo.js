@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+console.log("Health info button was selected you are now at the helth info page ");
 export class HealthInfo extends React.Component {
     render() {
         return (

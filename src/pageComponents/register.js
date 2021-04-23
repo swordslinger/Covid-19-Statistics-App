@@ -81,4 +81,4 @@ export class Register extends React.Component {
         );
 
     }
-}
+}console.log("register button was selected you are now at the register page ");
