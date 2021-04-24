@@ -30,8 +30,6 @@ export class MapOfIreland extends React.Component {
         const data = await response.json()
         this.state = data
         this.fid = data.features.length - 1
-        
-       
         console.log(data.features[this.fid].attributes.ConfirmedCovidCases)
         console.log(data)
        

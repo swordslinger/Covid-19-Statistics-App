@@ -6,7 +6,7 @@ export class HealthInfo extends React.Component {
         return (
             <div>
                 <h1 style={{ color: "red" }} >This is a Test for Healh info link</h1>
-                
+
             </div>
         );
     }
