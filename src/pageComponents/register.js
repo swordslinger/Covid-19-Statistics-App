@@ -68,7 +68,6 @@ export class Register extends React.Component {
                         {/* <label for="showPassword" class="field__toggle"></label>
                         Show password<input type="checkbox" id="show-password" class="field__toggle-input"></input> tried to show password or hide it*/ }
                     </div>
-                    
                     <div className="form-group">
                         <input type='submit'
                             value='Add User'

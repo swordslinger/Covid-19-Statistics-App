@@ -14,7 +14,7 @@ export class Login extends React.Component {
     };
 
     componentDidMount() {//component life cycle hook
-        axios.get('http://localhost:4000/Users')//json blob 
+        axios.get('http://localhost:4000/Users')//json blob
             .then((response) => {
                 this.setState({ users: response.data })
                 console.log(response.data.users)
