@@ -23,7 +23,6 @@ export class SearchAPI extends React.Component {
     //"+this.state.fid+"
     searchAPI = (e) => {
         this.setState(null)
-        https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/CovidStatisticsProfileHPSCIrelandOpenData/FeatureServer/0/query?where=FID%20%3E%3D%20406%20AND%20FID%20%3C%3D%20406&outFields=Date,ConfirmedCovidCases,TotalConfirmedCovidCases,ConfirmedCovidDeaths,TotalCovidDeaths,FID,CovidCasesConfirmed&outSR=4326&f=json
         fetch("https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/CovidStatisticsProfileHPSCIrelandOpenData/FeatureServer/0/query?where=FID%20%3E%3D%20"+this.state.fid+"%20AND%20FID%20%3C%3D%20"+this.state.fid+"&outFields=Date,ConfirmedCovidCases,TotalConfirmedCovidCases,ConfirmedCovidDeaths,TotalCovidDeaths,FID,CovidCasesConfirmed&outSR=4326&f=json")
         .then((response)=> response.json())
         .then((data)=> this.setState({ results:data})) //console.log(data.features[0].attributes.ConfirmedCovidCases))
