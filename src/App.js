@@ -11,6 +11,7 @@ import { Login } from './pageComponents/login';
 import { MapOfIreland } from './pageComponents/mapOfIreland';
 import { Register } from './pageComponents/register';
 import { Edit } from './pageComponents/edit';
+import {SearchAPI} from './pageComponents/searchAPI'
 
 
 
@@ -29,7 +30,7 @@ class App extends Component {//importing a class from react
               <Nav.Link href="/register">Register</Nav.Link>
               <Nav.Link href="/mapOfIreland">Map of ireland</Nav.Link>
               <Nav.Link href="/healthInfo">Health information</Nav.Link>
-
+              <Nav.Link href="/searchAPI">SearchAPI</Nav.Link>
             </Nav>
           </Navbar>
 
@@ -42,6 +43,7 @@ class App extends Component {//importing a class from react
             <Route path='/register' component={Register} exact />
             <Route path='/mapOfIreland' component={MapOfIreland} exact />
             <Route path='/edit/:id' component={Edit}/>  {/* user sent here with unique id of each user*/}
+            <Route path='/searchAPI' component={SearchAPI}/>  {/* user sent here with unique id of each user*/}
            
 
           </Switch>
