@@ -1,19 +1,15 @@
 import React from 'react';
 import axios from 'axios'
 
+
 export class SearchAPI extends React.Component {
     constructor (){
         super()
         this.searchAPI.bind(this)
         this.enterFID.bind(this)
+        this.unixToDDMMTT.bind(this)
         this.state = {
-            fid:"",
-            results:{
-                CovidCasesConfirmed:0,
-                FID:0,
-                ConfirmedCovidCases:0,
-                confirmedCovidDeaths:0
-            }
+            results:{},
         }
     }
 
@@ -24,21 +20,30 @@ export class SearchAPI extends React.Component {
         })      
     }
 
-  
+    //"+this.state.fid+"
     searchAPI = (e) => {
-        console.log(this.state.fid)
-        fetch("https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/CovidStatisticsProfileHPSCIrelandOpenData/FeatureServer/0/query?where=FID%20%3E%3D%20"+this.state.fid+"%20AND%20FID%20%3C%3D%20"+this.state.fid+"&outFields=CovidCasesConfirmed,FID,ConfirmedCovidCases,ConfirmedCovidDeaths&outSR=4326&f=json")
+        this.setState(null)
+        https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/CovidStatisticsProfileHPSCIrelandOpenData/FeatureServer/0/query?where=FID%20%3E%3D%20406%20AND%20FID%20%3C%3D%20406&outFields=Date,ConfirmedCovidCases,TotalConfirmedCovidCases,ConfirmedCovidDeaths,TotalCovidDeaths,FID,CovidCasesConfirmed&outSR=4326&f=json
+        fetch("https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/CovidStatisticsProfileHPSCIrelandOpenData/FeatureServer/0/query?where=FID%20%3E%3D%20"+this.state.fid+"%20AND%20FID%20%3C%3D%20"+this.state.fid+"&outFields=Date,ConfirmedCovidCases,TotalConfirmedCovidCases,ConfirmedCovidDeaths,TotalCovidDeaths,FID,CovidCasesConfirmed&outSR=4326&f=json")
         .then((response)=> response.json())
-        .then((data)=> 
-        e = data.features)
-        console.log(e)
-        
+        .then((data)=> this.setState({ results:data})) //console.log(data.features[0].attributes.ConfirmedCovidCases))
+        console.log(this.state.results)
     }
 
     showData = () => {
-        alert(this.state.results)
+       var date = this.unixToDDMMTT(this.state.results.features[0].attributes.Date)
+        alert(' Accumlative covid cases for inputed FID:  ' + this.state.results.features[0].attributes.CovidCasesConfirmed + "\n" +
+            ' Covid cases for inputed FID: '  + this.state.results.features[0].attributes.ConfirmedCovidCases + "\n" +
+            ' Covid deaths for inputed fid: ' + this.state.results.features[0].attributes.ConfirmedCovidDeaths + "\n" +
+            ' Date of occurance ' + date)
+
     }
 
+    unixToDDMMTT (unixTime) {
+        var date = new Intl.DateTimeFormat("en-GB").format(unixTime)
+
+       return date
+    }
     
 
     render (){
@@ -57,6 +62,7 @@ export class SearchAPI extends React.Component {
                 </form>
                 <button onClick={this.searchAPI}></button>
                 <button onClick={this.showData}></button>
+                
         </div>
 
         
