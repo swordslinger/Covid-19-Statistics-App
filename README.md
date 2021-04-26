@@ -14,6 +14,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### `node server.js`
+if you run the surver with node server.js in the internal terminal you can then
+Open [http://localhost:4000](http://localhost:4000) to view it in the browser but ran through the server.
+
+You will be able see any lint errors in the console.
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
@@ -68,3 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `Summary of Project`
+
+This project goal is to provide information on covid in an easy and digestable package. The home page has information on effects of Covid, we then have a link to the a page for covid protection reccomendations this ties in with another link of ireland that displays with popups of the last 14 days of covid cases. This should help the user understand the "hot spots" of covid cases and where is particular dangerous. Then we have a register an account with this page and our idea was that down the road we can do an email update of each county covid cases every 14 days to the user but we ran out of time for this.
