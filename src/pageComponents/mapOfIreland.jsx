@@ -5,33 +5,50 @@ import { L, layer } from "leaflet"
 import towns from '../data/towns.json'
 import "leaflet-css"
 import "./mapOfIreland.css"
-import { map, popup } from 'leaflet-css';
+import { bind, map, popup } from 'leaflet-css';
 
   
 export class MapOfIreland extends React.Component {
 
-   position = [54, -8]
+    constructor (props){
+        super(props)
+        this.getData.bind(this)
+        this.state = {
+            apiData:{},
+            fid:"",
+            dailyCovidCase:""
+        }
+    }
 
   
    
 
     //state object too save the coordinate points too use for popups on map and cases too display in popups 
-    state = {}
-    fid
+
+    
     
     // aysnchrounus hook that gets invoked after first render
-   async componentDidMount(){
-    console.log(towns.features)
+    componentDidMount(){
+  
+        this.getData()
+        
+  
+    }
+
+    async getData(){
+        console.log(towns.features)
         //URL for api
         const url = "https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/CovidStatisticsProfileHPSCIrelandOpenData/FeatureServer/0/query?where=1%3D1&outFields=Date,ConfirmedCovidCases,TotalConfirmedCovidCases,ConfirmedCovidDeaths,TotalCovidDeaths,CovidCasesConfirmed,StatisticsProfileDate&outSR=4326&f=json"
         //response from api
         const response = await fetch(url)
         //data from response convereted into a json object
         const data = await response.json()
-        this.state = data
-        this.fid = data.features.length - 1
-        console.log(data.features[this.fid].attributes.ConfirmedCovidCases)
+        this.setState({ apiData:data, fid:data.features.length - 1})
+        this.setState({dailyCovidCase : data.features[this.state.fid].attributes.ConfirmedCovidCases})
+        console.log(this.state.dailyCovidCase)
+        console.log(data.features[this.state.fid])
         console.log(data)
+        console.log(this.state.apiData.features[this.state.fid].attributes.Date)
        
         
         //testing too see if covid cases for two areas can be added together
@@ -40,9 +57,6 @@ export class MapOfIreland extends React.Component {
         //testing to ensure coordinates are accesible 
            // console.log(data.features[0].geometry.x)
 
-        //coordinates and cases for one area
-        
-  
     }
 
    
@@ -63,13 +77,20 @@ export class MapOfIreland extends React.Component {
 
     //renders elements on screen
     render() {
-        
-    console.log(this.state)
+    if(!this.state.apiData  && !this.state.fid ){
+        return null
+    }
+    else
+    (
+        console.log("ok")
+    )
+    
 
-        return (
-            
-            
+        
+        return (    
         <div id="map">
+
+         <h1>{this.state.fid}</h1>
             {/*Manul test to let user know if they are on the map of ireland page*/}
                 <h1 style={{ color: "red", textAlign: "center" }}>This is a Test for Map of Ireland link</h1>
                 <h1 style = {{ textAlign: "center"}}></h1>
@@ -82,12 +103,12 @@ export class MapOfIreland extends React.Component {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
-
+              
                 {/*draws on the leaflet map with the json data from counties.json */}
                 <GeoJSON  data = {towns.features} />
-                <Marker position = {[1,1]}>
+                <Marker position = {[53,-8]}>
                     <Popup>
-                    <h1>{this.position[1]}</h1>
+                    <h1>{this.state.dailyCovidCase}</h1>
                     </Popup>
                 </Marker>
                 
@@ -98,5 +119,6 @@ export class MapOfIreland extends React.Component {
       
             
         )
+    
     }
 }
