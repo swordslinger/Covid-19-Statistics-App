@@ -1,0 +1,77 @@
+{
+  "id": "f1ffe226-93bb-4555-97d6-586b7b420858",
+  "version": "2.0",
+  "name": "PPIT",
+  "url": "http://localhost:4000",
+  "tests": [{
+    "id": "4a7ac02c-3799-4264-a2a1-967abbf346b0",
+    "name": "Delete",
+    "commands": [{
+      "id": "cfb12820-c8c4-4ca7-be85-23cbb81ffd7e",
+      "comment": "",
+      "command": "open",
+      "target": "/register",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bf221f99-a1a5-477c-8ae6-442ced95b038",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1290x1405",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2accda6-9700-40d7-a40b-2d795dfde64f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.nav-link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "434237d8-327d-4b1b-8697-8ad8c047927b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=.nav-link:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/login')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3d5cd06-f992-4d5f-9271-779a8afbd71c",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(5) .btn-danger",
+      "targets": [
+        ["css=div:nth-child(5) .btn-danger", "css:finder"],
+        ["xpath=(//button[@type='button'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7703d456-d256-490a-a163-384da67e73f5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4a7ac02c-3799-4264-a2a1-967abbf346b0"]
+  }],
+  "urls": ["http://localhost:4000/"],
+  "plugins": []
+}

@@ -1,0 +1,140 @@
+{
+  "id": "f1ffe226-93bb-4555-97d6-586b7b420858",
+  "version": "2.0",
+  "name": "PPIT",
+  "url": "http://localhost:4000/",
+  "tests": [{
+    "id": "4a7ac02c-3799-4264-a2a1-967abbf346b0",
+    "name": "Navbar",
+    "commands": [{
+      "id": "4ece568c-e62d-487b-ba5d-1ad6710dd120",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24e47c9d-61ee-47ba-8368-e634f0e465b3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1290x1405",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1d29207e-c135-4743-8ab7-01edfd213d42",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.nav-link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff7cef64-dc64-47c6-8568-ee6b31bb126e",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.nav-link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9340bae9-322d-41bb-b050-58040d2c4129",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.nav-link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "be195ce8-8d1b-4e53-bcd4-c822a1c82ed7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=.nav-link:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/login')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ba6608a-762b-4138-9cb7-6a88822c9b27",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Register",
+      "targets": [
+        ["linkText=Register", "linkText"],
+        ["css=.nav-link:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Register')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/register')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfec4a8f-1085-4a28-bd16-10351d74f1e6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Map of ireland",
+      "targets": [
+        ["linkText=Map of ireland", "linkText"],
+        ["css=.nav-link:nth-child(4)", "css:finder"],
+        ["xpath=//a[contains(text(),'Map of ireland')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a[4]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/mapOfIreland')]", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Map of ireland')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1024d96-8186-4daf-8b6b-2e561b71c864",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Health information",
+      "targets": [
+        ["linkText=Health information", "linkText"],
+        ["css=.nav-link:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Health information')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a[5]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/healthInfo')]", "xpath:href"],
+        ["xpath=//a[5]", "xpath:position"],
+        ["xpath=//a[contains(.,'Health information')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7703d456-d256-490a-a163-384da67e73f5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4a7ac02c-3799-4264-a2a1-967abbf346b0"]
+  }],
+  "urls": ["http://localhost:4000/"],
+  "plugins": []
+}

@@ -1,0 +1,120 @@
+{
+  "id": "f1ffe226-93bb-4555-97d6-586b7b420858",
+  "version": "2.0",
+  "name": "PPIT",
+  "url": "http://localhost:4000",
+  "tests": [{
+    "id": "4a7ac02c-3799-4264-a2a1-967abbf346b0",
+    "name": "Register",
+    "commands": [{
+      "id": "d2b6da72-62ee-423e-9d4c-c585ffefd1e9",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3aa11acc-0291-48aa-a9f2-05cf8c384e3d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1290x1405",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f34aabeb-f1b4-415e-ad0b-8cea21fee56a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.nav-link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "41f373dd-e5f9-42ca-8dce-813833a9505b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Register",
+      "targets": [
+        ["linkText=Register", "linkText"],
+        ["css=.nav-link:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Register')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/nav/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/register')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ef819dc-a832-4e2d-aa56-7147cf9ae4e4",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-group:nth-child(1) > .form-control",
+      "targets": [
+        ["css=.form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@value='ryan@gmit.com']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ryan@gmit.com"
+    }, {
+      "id": "15a3c56c-48f4-4bb0-8306-44cd716d11a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(2) > .form-control",
+      "targets": [
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9e69698-b4f1-471a-8cd9-d2fc373b6ad3",
+      "comment": "",
+      "command": "type",
+      "target": "css=.form-group:nth-child(2) > .form-control",
+      "targets": [
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@value='6Six6six']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "6Six6six"
+    }, {
+      "id": "72438775-b0c0-4b37-b20c-386a6a0390ed",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Add User']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "67b5f20a-51b2-415b-ace1-1f6f7d60b077",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Account email: ryan@gmit.com Password: 6Six6six",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7703d456-d256-490a-a163-384da67e73f5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4a7ac02c-3799-4264-a2a1-967abbf346b0"]
+  }],
+  "urls": ["http://localhost:4000/"],
+  "plugins": []
+}
