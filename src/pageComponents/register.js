@@ -74,7 +74,7 @@ export class Register extends React.Component {
                             className='btn btn-primary'></input>
                     </div>
                 </form>
-                
+
             </div>//when button is pressed will execute on submit method
 
         );

@@ -4,7 +4,6 @@ import { Nav, Navbar } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; //controlls for the nav bar
 import './App.css';
 import { Bot } from './pageComponents/bot';
-import { HealthInfo } from './pageComponents/healthInfo';
 import { Home } from './pageComponents/home';
 import { Images } from './pageComponents/images';
 import { Login } from './pageComponents/login';
@@ -29,7 +28,6 @@ class App extends Component {//importing a class from react
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/register">Register</Nav.Link>
               <Nav.Link href="/mapOfIreland">Map of ireland</Nav.Link>
-              <Nav.Link href="/healthInfo">Health information</Nav.Link>
               <Nav.Link href="/searchAPI">SearchAPI</Nav.Link>
             </Nav>
           </Navbar>
@@ -38,7 +36,6 @@ class App extends Component {//importing a class from react
 
           <Switch>
             <Route path='/' component={Home} exact />
-            <Route path='/healthInfo' component={HealthInfo} exact />
             <Route path='/login' component={Login} exact />
             <Route path='/register' component={Register} exact />
             <Route path='/mapOfIreland' component={MapOfIreland} exact />

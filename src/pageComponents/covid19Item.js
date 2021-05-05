@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 //export class so it can be used in different locations
 export class Covid19Item extends React.Component {
 
+    // Rennders view for user aund with array split from covid.19 displays each individual compounenut of the array
     render() {
         return (
             <div>
